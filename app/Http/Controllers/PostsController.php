@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 class PostsController
 {
-    public function show($post) {
-        $posts = [
-            'my-first-post' => "Hello, this is my first blog post!",
-            'my-second-post' => 'Now I am getting hang of this blogging thing!'
-        ];
+    public function show($posts) {
+        $slug = "my-first-post";
+        $post = \DB::table('posts')->where('slug', "firstPost")->first();
+
+        dd($post);
 
         if (! array_key_exists($post, $posts)) {
             abort(404, "Sorry, that post was not found!!");

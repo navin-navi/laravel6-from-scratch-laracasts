@@ -49,7 +49,7 @@ Route::get('test', function () {
 // Router with Controller
 
 // Router Manually Created
-// Route::get('posts/{post}', 'PostsController@show');
+Route::get('posts/{post}', 'PostsController@show');
 
 // Router Generated Automatically with php artisan
-Route::get('posts/{post}', 'GeneratorPostsController@show');
+// Route::get('posts/{post}', 'GeneratorPostsController@show');
