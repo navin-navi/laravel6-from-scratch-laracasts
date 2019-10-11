@@ -54,10 +54,10 @@
 <body>
     <div class="flex-center position-ref full-height">
         <div class="code">
-            404 </div>
+            <b>404</b> </div>
 
         <div class="message" style="padding: 10px;">
-            <h2>{{ $exception->getMessage() }}</h2>
+            <h1>{{ $exception->getMessage() }}</h1>
         </div>
     </div>
 </body>

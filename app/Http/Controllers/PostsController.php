@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Post;
+
 class PostsController
 {
-    public function show($posts) {
-        $slug = "my-first-post";
-        $post = \DB::table('posts')->where('slug', "firstPost")->first();
+    public function show($slug) {
 
-        dd($post);
+        // DB is a global Class - without use DB;
+        // $post = \DB::table('posts')->where('slug', $slug)->first();
 
-        if (! array_key_exists($post, $posts)) {
+        // Using use DB;
+        // $post = DB::table('posts')->where('slug', $slug)->first();
+
+        // Using use App\Post;
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        if (! $post) {
             abort(404, "Sorry, that post was not found!!");
         }
 
-        return view('post', ['post' => $posts[$post] ?? "Nothing here yet!!"]);
+        return view('post', ['post' => $post]);
     }
 }
 
