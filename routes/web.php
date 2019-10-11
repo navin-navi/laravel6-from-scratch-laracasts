@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Article;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +32,23 @@ Route::get('test', function () {
         'script' => request("script")
     ]);
 });
+
+// Blade Templating Tutorial
+Route::get('simplework', function () {
+    return view('simpleWorkHome');
+});
+
+Route::get('simplework/home', function () {
+    return view('simpleWorkHome');
+});
+
+Route::get('simplework/about', function () {
+    return view('simpleWorkAbout',[
+        'articles' => Article::take(3)->latest()->get()
+    ]);
+});
+
+Route::get('simplework/articles/{id}', 'ArticlesController@show');
 
 // Router with wildcard
 
