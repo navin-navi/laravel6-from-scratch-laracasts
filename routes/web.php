@@ -48,6 +48,8 @@ Route::get('simplework/about', function () {
     ]);
 });
 
+Route::get('simplework/articles', 'ArticlesController@page');
+
 Route::get('simplework/articles/{id}', 'ArticlesController@show');
 
 // Router with wildcard
